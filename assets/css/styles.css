@@ -67,6 +67,7 @@
   left: 260px;
   top: 10px;
   right: 0;
+  width: 82%;
 }
 
 .header-left {
@@ -91,7 +92,7 @@
 #header .header-left div input {
   height: 32px;
   border: none;
-  width: 400px;
+  width: 300px;
   background-color: Transparent;
   color: #fff;
   outline: none;
