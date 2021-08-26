@@ -68,15 +68,13 @@
               </li>
             </ul>
           </div>
-          <div class="playlist">
+          <div id="playlist">
             <h3>Playlist</h3>
             <ul>
-              <li>
-                Nhạc để ngủ
-              </li>
+              <li>Nhạc để ngủ</li>
               <div class="newPlaylist">
                 <i class="fas fa-plus-circle fa-lg"></i>
-                 New Playlist 
+                New Playlist
               </div>
             </ul>
           </div>
@@ -85,12 +83,12 @@
 
         <header id="header">
           <div class="header-left">
-            <a href="" class="arrow-left"
-              ><i class="fas fa-arrow-left fa-2x arrow-left"></i
-            ></a>
-            <a href="" class="arrow-right"
-              ><i class="fas fa-arrow-right fa-2x"></i
-            ></a>
+            <a href="" class="arrow-left" >
+              <i class="fas fa-arrow-left fa-2x arrow-left"></i>
+          </a>
+            <a href="" class="arrow-right">
+              <i class="fas fa-arrow-right fa-2x"></i>
+            </a>
             <form action="" class="form">
               <div class="search">
                 <i class="fas fa-search fa-lg"></i>
@@ -103,8 +101,14 @@
             </form>
           </div>
           <div class="header-right">
-            <a href="#"> <i class="fas fa-upload fa-lg"></i></a>
-            <a href="#"><i class="fas fa-cog fa-lg"></i></a>
+            <a href="#" class="tooltip">
+              <i class="fas fa-upload fa-lg"></i>
+              <span class="tooltiptext">Upload</span>
+            </a>
+            <a href="#" class="tooltip">
+              <i class="fas fa-cog fa-lg"></i>
+              <span class="tooltiptext">Setting</span>
+            </a>
             <a href="#">
               <img
                 src="./assets/image/avataSmall.jpg"
@@ -114,10 +118,23 @@
             </a>
           </div>
         </header>
-        <div class="content active">
-          <div class="myAccount">ssss</div>
+        <div class="content">
+          <div class="myAccount active">myAccount</div>
+          <div class="home ">home</div>
+          <div class="trend">trend</div>
+          <div class="likedSong">likedSong</div>
+          <div class="album">album</div>
+          <div class="artist">artist</div>
+          <div class="history">history</div>
+          <div class="playlist">playlist</div>
         </div>
+       
       </div>
+      <div class="playFrame">
+        <div class="contentFrame">
+          aaa
+        </div>
+    </div>
     </div>
   </body>
 </html>

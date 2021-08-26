@@ -142,19 +142,139 @@
 #header a:hover {
   opacity: 0.8;
 }
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 60px;
+  background-color: #000000;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 130%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent #000000 transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
 /* End Header */
 
 .content {
   width: 80%;
 
   float: left;
-  background-color: rgb(247, 23, 23);
+
   position: absolute;
   top: 90px;
   left: 18%;
 }
+/* Start my Account */
 .myAccount {
-  background-color: black;
+  background-color: rgb(163, 25, 25);
   height: 900px;
+  display: none;
   max-height: 600px;
 }
+/* End My Account */
+
+/* Start Home */
+.home {
+  background-color: rgb(61, 24, 194);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Home */
+
+/* Start Trend */
+.trend {
+  background-color: rgb(5, 2, 17);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Trend */
+
+/* Start Liked Song */
+.likedSong {
+  background-color: rgb(20, 218, 46);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Liked Song */
+
+/* Start Album */
+.album {
+  background-color: rgb(226, 223, 17);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Album */
+
+/* Start Artist */
+.artist {
+  background-color: rgb(192, 23, 192);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End  Artist*/
+
+/* Start  History*/
+.history {
+  background-color: rgb(92, 245, 4);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End  History*/
+
+/* Start Playlist */
+.playlist {
+  background-color: rgb(12, 236, 98);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End  Playlist*/
+.content .active {
+  display: block;
+}
+
+/* Start Play */
+.playFrame {
+  width: 100%;
+  height: 100px;
+  background-color: #000000;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  display: none;
+}
+/* End Play */
