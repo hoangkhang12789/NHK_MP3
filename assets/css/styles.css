@@ -40,20 +40,17 @@
   display: flex;
   align-items: center;
   margin-left: 6px;
-  
+  color: #fff;
   padding: 10px 25px;
 }
 #nav li:hover {
   opacity: 1;
+  cursor: pointer;
 }
-#nav a {
-  text-decoration: none;
-  color: #fff;
-  margin-left: 5px;
-}
+
 #nav i {
   color: #fff;
-  margin-left: 6px;
+  margin: 0 6px;
 }
 #nav h3 {
   color: #fff;
@@ -66,9 +63,10 @@
   border-radius: 4px;
   margin-left: 0;
 }
-.newPlaylist a{
+.newPlaylist {
   margin-top: 6px;
   font-size: 19px;
+  color: #fff;
 }
 /* End Nav */
 
