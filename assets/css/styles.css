@@ -268,13 +268,143 @@
 /* Start Play */
 .playFrame {
   width: 100%;
-  height: 100px;
-  background-color: #000000;
+  height: 90px;
+  background-color: #f0e6e6;
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 200;
+  display: flex;
+
+  align-items: center;
+}
+/* display: none; */
+
+.slidecontainer {
+  width: 100%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 8px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  background: #eb0a0a;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  background: #e40417;
+  cursor: pointer;
+}
+
+.contentFrame {
+  display: flex;
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 20px;
+}
+.song {
+  display: flex;
+
+  width: 20%;
+}
+.avt-artist {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: 5px solid #e40417;
+}
+.content-song {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-right: 30px;
+}
+.icon-song {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* margin-right: 30px; */
+  align-items: center;
+  flex-direction: row;
+}
+.icon-song i {
+  margin-left: 20px;
+}
+.progress {
+  display: flex;
+  align-items: center;
+}
+.progress span {
+  margin: 0 10px;
+}
+.play .button i {
+  margin: 0 5px;
+}
+.play {
+  height: 90px;
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.play .button {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.play .button i {
+  margin: 0 15px;
+}
+.play .button i:hover {
+  cursor: pointer;
+  color: rgb(46, 10, 247);
+}
+.play .button .active {
+  display: block;
+}
+.play .button .nonactive {
   display: none;
+}
+.volume {
+  display: flex;
+}
+.volume i {
+  margin-right: 10px;
+}
+.playFrame {
+  background-image: url(../image/music.jpg);
+  color: #ffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.title {
+  font-size:18px;
+}
+.singer {
+  font-size: 12px;
 }
 /* End Play */

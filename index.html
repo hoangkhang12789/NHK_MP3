@@ -83,9 +83,9 @@
 
         <header id="header">
           <div class="header-left">
-            <a href="" class="arrow-left" >
+            <a href="" class="arrow-left">
               <i class="fas fa-arrow-left fa-2x arrow-left"></i>
-          </a>
+            </a>
             <a href="" class="arrow-right">
               <i class="fas fa-arrow-right fa-2x"></i>
             </a>
@@ -120,7 +120,7 @@
         </header>
         <div class="content">
           <div class="myAccount active">myAccount</div>
-          <div class="home ">home</div>
+          <div class="home">home</div>
           <div class="trend">trend</div>
           <div class="likedSong">likedSong</div>
           <div class="album">album</div>
@@ -128,13 +128,57 @@
           <div class="history">history</div>
           <div class="playlist">playlist</div>
         </div>
-       
       </div>
       <div class="playFrame">
         <div class="contentFrame">
-          aaa
+          <div class="song">
+            <img
+              src="./assets/image/LeBaoBinh.jpg"
+              alt="le bao binh"
+              class="avt-artist"
+            />
+            <div class="content-song">
+              <span class="title">Níu Duyên</span>
+              <span class="singer">Lê Bảo Bình</span>
+            </div>
+            <div class="icon-song">
+              <i class="far fa-heart"></i>
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+          </div>
+          <div class="play">
+            <div class="button">
+              <i class="fas fa-random fa-lg random"></i>
+              <i class="fas fa-step-backward fa-lg backward"></i>
+
+              <i class="far fa-play-circle fa-3x play-btn"></i>
+              <i class="fas fa-pause-circle fa-3x nonactive pause"></i>
+              <i class="fas fa-step-forward fa-lg forward"></i>
+              <i class="fas fa-sync-alt fa-lg loop"></i>
+            </div>
+            <div class="progress">
+              <span>0:00</span>
+              <input
+                type="range"
+                name="progress"
+                id="progress"
+                max="100"
+                value="50"
+                class="slider"
+              />
+              <span>3:00</span>
+            </div>
+          </div>
+          <div class="volume">
+            <!-- <i class="fas fa-volume-mute fa-3x"></i>
+            <i class="fas fa-volume-mute"></i>
+            <i class="fas fa-volume-off"></i> -->
+            <i class="fas fa-volume-down fa-lg"></i>
+            <input type="range" name="volume" id="volume" />
+          </div>
+          <audio src="./assets/music/NiuDuyen-LeBaoBinh-6872127.mp3" id="audio"></audio>
         </div>
-    </div>
+      </div>
     </div>
   </body>
 </html>
