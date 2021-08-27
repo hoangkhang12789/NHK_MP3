@@ -377,6 +377,7 @@
 }
 .play .button i {
   margin: 0 15px;
+  caret-color: rgba(0, 0, 0, 0);
 }
 .play .button i:hover {
   cursor: pointer;
@@ -402,9 +403,15 @@
   background-size: cover;
 }
 .title {
-  font-size:18px;
+  font-size: 18px;
 }
 .singer {
   font-size: 12px;
+}
+.play-btn {
+  display: none;
+}
+.pause {
+  display: none;
 }
 /* End Play */

@@ -148,13 +148,24 @@
           </div>
           <div class="play">
             <div class="button">
-              <i class="fas fa-random fa-lg random"></i>
-              <i class="fas fa-step-backward fa-lg backward"></i>
-
-              <i class="far fa-play-circle fa-3x play-btn"></i>
-              <i class="fas fa-pause-circle fa-3x nonactive pause"></i>
-              <i class="fas fa-step-forward fa-lg forward"></i>
-              <i class="fas fa-sync-alt fa-lg loop"></i>
+              <div class="random">
+                <i class="fas fa-random fa-lg"></i>
+              </div>
+              <div class="backward">
+                <i class="fas fa-step-backward fa-lg"></i>
+              </div>
+              <div class="play-btn active">
+                <i class="far fa-play-circle fa-3x"></i>
+              </div>
+              <div class="pause">
+                <i class="fas fa-pause-circle fa-3x"></i>
+              </div>
+              <div class="forward">
+                <i class="fas fa-step-forward fa-lg"></i>
+              </div>
+              <div class="loop">
+                <i class="fas fa-sync-alt fa-lg"></i>
+              </div>
             </div>
             <div class="progress">
               <span>0:00</span>
@@ -176,7 +187,10 @@
             <i class="fas fa-volume-down fa-lg"></i>
             <input type="range" name="volume" id="volume" />
           </div>
-          <audio src="./assets/music/NiuDuyen-LeBaoBinh-6872127.mp3" id="audio"></audio>
+          <audio
+            src="./assets/music/NiuDuyen-LeBaoBinh-6872127.mp3"
+            id="audio"
+          ></audio>
         </div>
       </div>
     </div>
