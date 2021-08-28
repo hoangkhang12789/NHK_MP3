@@ -359,7 +359,6 @@
 }
 .progress span {
   margin: 0 10px;
-  
 }
 .play .button i {
   margin: 0 5px;
@@ -414,5 +413,17 @@
 }
 .pause {
   display: none;
+}
+.volume i {
+  display: none;
+}
+.volume .active {
+  display: block;
+}
+.button .active-random {
+  color: #fd0946;
+}
+.button .active-repeat {
+  color: #fd0946;
 }
 /* End Play */

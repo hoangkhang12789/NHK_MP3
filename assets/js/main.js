@@ -31,10 +31,18 @@ const progress = $("#progress");
 const title = $(".title");
 const singer = $(".singer");
 const avatar = $(".avt-artist");
+const volume = $("#volume");
+const off = $(".off")
+const half = $(".half");
+const full = $(".full");
+const liner = $(".liner");
+const volumeOn = $$(".volume i");
 
 const app = {
     currentIndex: 0,
-
+    isMute: true,
+    isRandom: false,
+    isRepeat: false,
     song: [
 
         {
@@ -54,6 +62,34 @@ const app = {
             singer: "Hứa Kim Tuyền",
             path: "./assets/music/SaiGonDauLongQua-HuaKimTuyenHoangDuyen-6992977.mp3",
             image: "./assets/image/HuaKimTuyen.jpg"
+        }
+        ,
+        {
+            title: "Độ Tộc 2",
+            singer: "Masew, Pháo, Phúc Du, Độ Mixi",
+            path: "./assets/music/DoToc2.mp3",
+            image: "./assets/image/dotoc2.jpg"
+        }
+        ,
+        {
+            title: "Gặp gỡ yêu đương và được bên em",
+            singer: "Phan Mạnh Quỳnh",
+            path: "./assets/music/GapGoYeuDuongVaDuocBenEm.mp3",
+            image: "./assets/image/phanmanhquynhf.jpg"
+        }
+        ,
+        {
+            title: "Khi người lớn cô đơn",
+            singer: "Phạm Hồng Phước",
+            path: "./assets/music/KhiNguoiLonCoDon.mp3",
+            image: "./assets/image/phamhongphuoc.jpg"
+        }
+        ,
+        {
+            title: "Rồi tới luôn",
+            singer: "Nal",
+            path: "./assets/music/RoiToiLuon.mp3",
+            image: "./assets/image/nal.jpg"
         }
 
     ],
@@ -104,8 +140,23 @@ const app = {
         const length = audio.duration / 60;
         const minSongTime = Math.floor(length);
         const secondsSongTime = Math.floor(audio.duration % 60);
-        songTime.innerHTML = `${minSongTime}:${secondsSongTime}`
+        if (secondsSongTime < 10) {
+            songTime.innerHTML = `${minSongTime}:0${secondsSongTime}`
 
+        } else {
+            songTime.innerHTML = `${minSongTime}:${secondsSongTime}`
+
+        }
+
+    }
+    ,
+    randomSong: function () {
+        let index;
+        do {
+            index = Math.floor(Math.random() * this.song.length)
+        } while (index === this.currentIndex)
+        this.currentIndex = index;
+        this.loadCurrentSong();
     }
     ,
     handledSong: function () {
@@ -130,7 +181,12 @@ const app = {
 
         }
         forward.onclick = () => {
-            this.forwardSong();
+            if (this.isRandom) {
+                this.randomSong();
+            } else {
+                this.forwardSong();
+            }
+
             this.playSong();
         }
         backward.onclick = () => {
@@ -143,20 +199,68 @@ const app = {
             progress.value = time;
             const minCurrentTime = Math.floor(audio.currentTime / 60);
             const secondsCurrentTime = Math.floor(audio.currentTime % 60);
-            currentTime.innerText = `${minCurrentTime}:${secondsCurrentTime}`;
+            if (secondsCurrentTime < 10) {
+                currentTime.innerText = `${minCurrentTime}:0${secondsCurrentTime}`;
+
+            } else {
+                currentTime.innerText = `${minCurrentTime}:${secondsCurrentTime}`;
+
+            }
         }
         audio.onplaying = () => {
             this.loadTime();
         }
-        progress.onchange = (e) => {
+        progress.oninput = () => {
             let seekTime = audio.duration / 100 * progress.value;
             audio.currentTime = seekTime;
         }
+        volume.oninput = () => {
+            audio.volume = volume.value / 100;
+            volumeOn.forEach((i) => {
+                i.classList.remove("active");
+            });
+            if (volume.value > 70) {
+                full.classList.add("active");
+            } else if (volume.value <= 70 && volume.value >= 30) {
+                half.classList.add("active");
+            }
+            else if (volume.value > 0 && volume.value < 30) {
+                liner.classList.add("active");
+            }
+            else {
+                off.classList.add("active");
+            }
 
+        }
+        volumeOn.forEach((i) => {
+            i.onclick = () => {
+                i.classList.remove("active");
+                if (this.isMute) {
+                    off.classList.add("active");
+                    audio.volume = 0;
+                } else {
+                    full.classList.add("active");
+                    audio.volume = 1;
+                }
+                this.isMute = !this.isMute;
+            }
+        })
+        audio.onended = () => {
+            if (this.isRepeat) {
+                audio.play();
+            } else {
+                forward.click();
 
-
-
-
+            }
+        }
+        random.onclick = () => {
+            this.isRandom = !this.isRandom;
+            random.classList.toggle("active-random");
+        }
+        repeat.onclick = () => {
+            this.isRepeat = !this.isRepeat;
+            repeat.classList.toggle("active-repeat");
+        }
     }
     ,
     render: function () {
