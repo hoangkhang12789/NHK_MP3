@@ -1,0 +1,83 @@
+.content {
+    width: 80%;
+  
+    float: left;
+  
+    position: absolute;
+    top: 90px;
+    left: 18%;
+  }
+  /* Start my Account */
+  .myAccount {
+    background-color: rgb(163, 25, 25);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End My Account */
+  
+  /* Start Home */
+  .home {
+    background-color: rgb(61, 24, 194);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End Home */
+  
+  /* Start Trend */
+  .trend {
+    background-color: rgb(5, 2, 17);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End Trend */
+  
+  /* Start Liked Song */
+  .likedSong {
+    background-color: rgb(20, 218, 46);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End Liked Song */
+  
+  /* Start Album */
+  .album {
+    background-color: rgb(226, 223, 17);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End Album */
+  
+  /* Start Artist */
+  .artist {
+    background-color: rgb(192, 23, 192);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End  Artist*/
+  
+  /* Start  History*/
+  .history {
+    background-color: rgb(92, 245, 4);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End  History*/
+  
+  /* Start Playlist */
+  .playlist {
+    background-color: rgb(12, 236, 98);
+    height: 900px;
+    display: none;
+    max-height: 600px;
+  }
+  /* End  Playlist*/
+  .content .active {
+    display: block;
+  }

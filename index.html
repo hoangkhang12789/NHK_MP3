@@ -17,7 +17,7 @@
       crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="./assets/css/styles.css" />
-
+    <link rel="stylesheet" href="./assets/css/content.css" />
     <script src="./assets/js/main.js" async></script>
   </head>
   <body>
@@ -138,8 +138,13 @@
               class="avt-artist"
             />
             <div class="content-song">
-              <span class="title">Níu Duyên</span>
-              <span class="singer">Lê Bảo Bình</span>
+              <div>
+                <span class="title">Níu Duyên</span>
+              </div>
+
+              <marquee class="singer" direction="left" scrollamount="1">
+                Lê Bảo Bình
+              </marquee>
             </div>
             <div class="icon-song">
               <i class="far fa-heart"></i>
@@ -148,8 +153,8 @@
           </div>
           <div class="play">
             <div class="button">
-              <div class="random ">
-                <i class="fas fa-random fa-lg "></i>
+              <div class="random">
+                <i class="fas fa-random fa-lg"></i>
               </div>
               <div class="backward">
                 <i class="fas fa-step-backward fa-lg"></i>
@@ -185,10 +190,10 @@
             <div class="iconVolume">
               <i class="fas fa-volume-mute fa-lg off"></i>
               <i class="fas fa-volume-off fa-lg liner"></i>
-              <i class="fas fa-volume-down fa-lg half "></i>
+              <i class="fas fa-volume-down fa-lg half"></i>
               <i class="fas fa-volume-up fa-lg full active"></i>
             </div>
-           
+
             <input
               type="range"
               name="volume"

@@ -43,6 +43,8 @@ const app = {
     isMute: true,
     isRandom: false,
     isRepeat: false,
+    arraySong: [],
+    count: 0,
     song: [
 
         {
@@ -135,16 +137,20 @@ const app = {
 
     },
     loadTime: function () {
+
         const songTime = $(".songTime");
 
         const length = audio.duration / 60;
         const minSongTime = Math.floor(length);
         const secondsSongTime = Math.floor(audio.duration % 60);
+
         if (secondsSongTime < 10) {
-            songTime.innerHTML = `${minSongTime}:0${secondsSongTime}`
+
+            songTime.innerText = `${minSongTime}:0${secondsSongTime}`
 
         } else {
-            songTime.innerHTML = `${minSongTime}:${secondsSongTime}`
+            songTime.innerText = `${minSongTime}:${secondsSongTime}`
+
 
         }
 
@@ -152,11 +158,14 @@ const app = {
     ,
     randomSong: function () {
         let index;
+
         do {
-            index = Math.floor(Math.random() * this.song.length)
-        } while (index === this.currentIndex)
+            index = Math.floor(Math.random() * this.song.length);
+
+        } while (index === this.currentIndex);
         this.currentIndex = index;
         this.loadCurrentSong();
+
     }
     ,
     handledSong: function () {
@@ -209,6 +218,7 @@ const app = {
         }
         audio.onplaying = () => {
             this.loadTime();
+            animation.play();
         }
         progress.oninput = () => {
             let seekTime = audio.duration / 100 * progress.value;
@@ -261,6 +271,7 @@ const app = {
             this.isRepeat = !this.isRepeat;
             repeat.classList.toggle("active-repeat");
         }
+
     }
     ,
     render: function () {
