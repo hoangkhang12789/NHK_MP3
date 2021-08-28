@@ -158,13 +158,27 @@ const app = {
     ,
     randomSong: function () {
         let index;
+        let isCheck;
+        console.log(this.count);
 
         do {
             index = Math.floor(Math.random() * this.song.length);
+            isCheck = this.arraySong.includes(index);
+        } while (isCheck);
 
-        } while (index === this.currentIndex);
+
+        this.arraySong[this.count] = index;
         this.currentIndex = index;
         this.loadCurrentSong();
+
+        if (this.count == this.song.length - 1) {
+            this.count = -1;
+            this.arraySong = [];
+        }
+        this.count++;
+        console.log(this.count);
+        console.log(this.arraySong);
+
 
     }
     ,
