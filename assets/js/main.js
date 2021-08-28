@@ -3,10 +3,11 @@ const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 // Chuyển tab
 const tabs = $$("#nav li");
-const contents = $$(".content div");
+const contents = $$(".content>div");
 tabs.forEach((tab, index) => {
     const content = contents[index]
     tab.onclick = () => {
+        console.log(content);
         $("#nav .active").classList.remove("active");
         $(".content .active").classList.remove("active");
         tab.classList.add('active');

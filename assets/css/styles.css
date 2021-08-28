@@ -196,7 +196,7 @@ body {
   left: 0;
   right: 0;
   z-index: 200;
-  display: flex;
+  display: none;
 
   align-items: center;
 }
@@ -393,7 +393,8 @@ body {
 #volume:hover  { 
   opacity: 1;
   height: 6px;
-  
-
+}
+.active-playFrame{
+  display: flex;
 }
 /* End Play */

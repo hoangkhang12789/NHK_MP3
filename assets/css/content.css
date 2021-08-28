@@ -1,83 +1,179 @@
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
 .content {
-    width: 80%;
-  
-    float: left;
-  
-    position: absolute;
-    top: 90px;
-    left: 18%;
-  }
-  /* Start my Account */
-  .myAccount {
-    background-color: rgb(163, 25, 25);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End My Account */
-  
-  /* Start Home */
-  .home {
-    background-color: rgb(61, 24, 194);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End Home */
-  
-  /* Start Trend */
-  .trend {
-    background-color: rgb(5, 2, 17);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End Trend */
-  
-  /* Start Liked Song */
-  .likedSong {
-    background-color: rgb(20, 218, 46);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End Liked Song */
-  
-  /* Start Album */
-  .album {
-    background-color: rgb(226, 223, 17);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End Album */
-  
-  /* Start Artist */
-  .artist {
-    background-color: rgb(192, 23, 192);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End  Artist*/
-  
-  /* Start  History*/
-  .history {
-    background-color: rgb(92, 245, 4);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End  History*/
-  
-  /* Start Playlist */
-  .playlist {
-    background-color: rgb(12, 236, 98);
-    height: 900px;
-    display: none;
-    max-height: 600px;
-  }
-  /* End  Playlist*/
-  .content .active {
-    display: block;
-  }
+  width: 80%;
+
+  float: left;
+
+  position: absolute;
+  top: 90px;
+  left: 18%;
+}
+/* Start my Account */
+.myAccount {
+  background-color: transparent;
+  height: 900px;
+  display: none;
+  max-height: 600px;
+  overflow-y: scroll;
+}
+.myAccount-level {
+  padding: 10px;
+  color: #fff;
+}
+.user-profile {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2em;
+}
+.user-profile .avatar img {
+  border-radius: 50%;
+  width: 95px;
+  height: 95px;
+  margin-bottom: 10px;
+}
+.user-nav {
+  display: flex;
+  align-items: center;
+  height: 50px;
+  justify-content: center;
+}
+.user-nav ul {
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid #ad9db9;
+  font-weight: 400;
+  margin: 0 auto;
+  background-color: transparent;
+}
+.user-nav ul li {
+  padding: 4px;
+  list-style: none;
+}
+.user-nav a {
+  text-decoration: none;
+  color: #fff;
+  padding: 4px 25px;
+  opacity: 0.8;
+}
+.user-nav .active {
+  border-radius: 20px;
+  opacity: 1;
+  background-color: #8f8e8e;
+}
+.user-nav a:hover {
+  opacity: 1;
+}
+.header-myAccount {
+  margin-top: 40px;
+  display: flex;
+  align-self: center;
+  justify-content: space-between;
+  font-weight: 400;
+}
+.header-myAccount h3{
+  font-size: 20px;
+}
+.header-myAccount a{
+  color: #fff;
+  text-decoration: none;
+  padding: 5px 20px;
+  border: 1px solid transparent;
+  border-radius: 50px;
+  background-color: #4b206e;
+}
+.header-myAccount a:last-child{
+  background-color:#ed2b91;
+  margin-left: 6px;
+}
+.header-myAccount h3:hover{
+  color: #ed2b91;
+}
+/* End My Account */
+
+/* Start Home */
+.home {
+  background-color: rgb(61, 24, 194);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Home */
+
+/* Start Trend */
+.trend {
+  background-color: rgb(5, 2, 17);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Trend */
+
+/* Start Liked Song */
+.likedSong {
+  background-color: rgb(20, 218, 46);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Liked Song */
+
+/* Start Album */
+.album {
+  background-color: rgb(226, 223, 17);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End Album */
+
+/* Start Artist */
+.artist {
+  background-color: rgb(192, 23, 192);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End  Artist*/
+
+/* Start  History*/
+.history {
+  background-color: rgb(92, 245, 4);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End  History*/
+
+/* Start Playlist */
+.playlist {
+  background-color: rgb(12, 236, 98);
+  height: 900px;
+  display: none;
+  max-height: 600px;
+}
+/* End  Playlist*/
+.content .active {
+  display: block;
+}
