@@ -1,24 +1,6 @@
 "use strick"
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
-// Chuyển tab
-const tabs = $$("#nav li");
-const contents = $$(".content>div");
-tabs.forEach((tab, index) => {
-    const content = contents[index]
-    tab.onclick = () => {
-        console.log(content);
-        $("#nav .active").classList.remove("active");
-        $(".content .active").classList.remove("active");
-        tab.classList.add('active');
-        content.classList.add('active');
-    }
-})
-
-
-
-
-// Render music
 const audio = $("#audio");
 const play = $(".play-btn");
 const pause = $(".pause");
@@ -38,6 +20,85 @@ const half = $(".half");
 const full = $(".full");
 const liner = $(".liner");
 const volumeOn = $$(".volume i");
+const tabs = $$("#nav li");
+const contents = $$(".content>div");
+const root = $(":root");
+const userChoices = $$(".user-nav li span");
+const playListUser = $(".list-song-user");
+const playFrame = $(".playFrame");
+const listImage = $$(".img-song-user ul li");
+const playAll = $$(".header-myAccount span");
+console.log(playAll);
+// Chuyển tab
+
+let arrayImage = ["one", "two", "three", "four"];
+let indexImage = 0;
+setInterval(() => {
+    listImage[0].classList.add(`${arrayImage[(indexImage + 1) % 4]}`);
+    listImage[0].classList.remove(`${arrayImage[(indexImage) % 4]}`);
+    listImage[1].classList.add(`${arrayImage[(indexImage + 2) % 4]}`);
+    listImage[1].classList.remove(`${arrayImage[(indexImage + 1) % 4]}`);
+    listImage[2].classList.add(`${arrayImage[(indexImage + 3) % 4]}`);
+    listImage[2].classList.remove(`${arrayImage[(indexImage + 2) % 4]}`);
+    listImage[3].classList.add(`${arrayImage[(indexImage + 4) % 4]}`);
+    listImage[3].classList.remove(`${arrayImage[(indexImage + 3) % 4]}`);
+    indexImage++;
+
+
+}, 3000);
+
+
+tabs.forEach((tab, index) => {
+    const content = contents[index]
+    tab.onclick = () => {
+
+        $("#nav .active").classList.remove("active");
+        $(".content > .active").classList.remove("active");
+        tab.classList.add('active');
+        content.classList.add('active');
+    }
+})
+
+userChoices.forEach((user, index) => {
+    user.onclick = () => {
+        $(".user-nav .active ").classList.remove("active");
+        user.classList.add("active");
+
+    }
+})
+
+// Scroll
+playListUser.onscroll = () => {
+
+    if (playListUser.scrollTop > 20) {
+        root.style.setProperty('--background3', '#e40417');
+        root.style.setProperty('--background4', '#5c5656');
+    } else {
+        root.style.setProperty('--background3', 'transparent');
+        root.style.setProperty('--background4', 'transparent');
+    }
+}
+
+// Scroll
+content.onscroll = () => {
+
+    if (content.scrollTop > 20) {
+
+        root.style.setProperty('--background1', '#e40417');
+        root.style.setProperty('--background2', '#5c5656');
+    } else {
+        root.style.setProperty('--background1', 'transparent');
+        root.style.setProperty('--background2', 'transparent');
+    }
+}
+
+
+
+
+
+
+// Render music
+
 
 const app = {
     currentIndex: 0,
@@ -52,19 +113,22 @@ const app = {
             title: "Níu Duyên",
             singer: "Lê Bảo Bình",
             path: "./assets/music/NiuDuyen-LeBaoBinh-6872127.mp3",
-            image: "./assets/image/LeBaoBinh.jpg"
+            image: "./assets/image/LeBaoBinh.jpg",
+            time: "5:35"
         },
         {
             title: "Phận Duyên Lỡ Làng",
             singer: "PHÁT HUY T4 X TRUZG",
             path: "./assets/music/PhanDuyenLoLang-PhatHuyT4Trugz-7004538.mp3",
             image: "./assets/image/PHATHUYT4XTRUZG.jpg"
+            , time: "4:15"
         },
         {
             title: "Sài Gòn đau Lòng Qúa",
             singer: "Hứa Kim Tuyền",
             path: "./assets/music/SaiGonDauLongQua-HuaKimTuyenHoangDuyen-6992977.mp3",
             image: "./assets/image/HuaKimTuyen.jpg"
+            , time: "5:08"
         }
         ,
         {
@@ -72,27 +136,31 @@ const app = {
             singer: "Masew, Pháo, Phúc Du, Độ Mixi",
             path: "./assets/music/DoToc2.mp3",
             image: "./assets/image/dotoc2.jpg"
+            , time: "3:21"
         }
         ,
         {
-            title: "Gặp gỡ yêu đương và được bên em",
+            title: "Gặp gỡ yêu đương và bên em",
             singer: "Phan Mạnh Quỳnh",
             path: "./assets/music/GapGoYeuDuongVaDuocBenEm.mp3",
-            image: "./assets/image/phanmanhquynhf.jpg"
+            image: "./assets/image/phanmanhquynhf.jpg",
+            time: "4:00"
         }
         ,
         {
             title: "Khi người lớn cô đơn",
             singer: "Phạm Hồng Phước",
             path: "./assets/music/KhiNguoiLonCoDon.mp3",
-            image: "./assets/image/phamhongphuoc.jpg"
+            image: "./assets/image/phamhongphuoc.jpg",
+            time: "5:17"
         }
         ,
         {
             title: "Rồi tới luôn",
             singer: "Nal",
             path: "./assets/music/RoiToiLuon.mp3",
-            image: "./assets/image/nal.jpg"
+            image: "./assets/image/nal.jpg",
+            time: "4:02"
         }
 
     ],
@@ -160,7 +228,7 @@ const app = {
     randomSong: function () {
         let index;
         let isCheck;
-        console.log(this.count);
+
 
         do {
             index = Math.floor(Math.random() * this.song.length);
@@ -177,8 +245,6 @@ const app = {
             this.arraySong = [];
         }
         this.count++;
-        console.log(this.count);
-        console.log(this.arraySong);
 
 
     }
@@ -286,28 +352,82 @@ const app = {
             this.isRepeat = !this.isRepeat;
             repeat.classList.toggle("active-repeat");
         }
+        playAll[1].onclick = () => {
+            playAndPause.classList.remove("active");
+
+
+            playFrame.classList.add("active-playFrame");
+            pause.classList.add("active");
+            audio.play();
+        }
 
     }
     ,
-    render: function () {
-        const html = this.song.map((song, index) => {
-            return
-            ``
+    renderUser: function () {
+
+        const html = this.song.map(songs => {
+            return `
+            <div class="thesong">
+                        <div class="song-infor">
+                          <div class="hovered">
+                            <img
+                            src="${songs.image}"
+                            alt="singer"
+                            class="img-song"
+                          />
+                          <i class="fas fa-play"></i>
+                          </div>
+                         
+                          <div class="infor">
+                            <span class="title-user-song">${songs.title} </span>
+                            <span class="singer-user-song">${songs.singer}</span>
+                          </div>
+                        </div>
+                        <div class="divtimeSong">
+                          <span>${songs.time}</span>
+                        </div>
+                        <div class="iconSong-user">
+                          <i class="fas fa-microphone-alt"></i>
+                          <i class="far fa-heart"></i>
+                          <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                      </div>
+            `
+
+        });
+
+        playListUser.innerHTML = html.join("")
+    },
+    PlaySongUser: function () {
+        const listPlayUser = $$(".thesong")
+        listPlayUser.forEach((play, index) => {
+            play.onclick = () => {
+                playAndPause.classList.remove("active");
+                this.currentIndex = index;
+                this.loadCurrentSong();
+                playFrame.classList.add("active-playFrame");
+                pause.classList.add("active");
+                audio.play();
+            }
+
 
         })
+
+
     }
     ,
     run: function () {
+        this.renderUser()
         this.loadCurrentSong();
         this.loadTime();
+        this.PlaySongUser();
         this.handledSong();
+
 
     }
 }
 
 app.run();
-
-
 
 
 

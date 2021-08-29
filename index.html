@@ -70,25 +70,23 @@
           </div>
           <div id="playlist">
             <h3>Playlist</h3>
-            <ul>
-              <li>Nhạc để ngủ</li>
-              <div class="newPlaylist">
-                <i class="fas fa-plus-circle fa-lg"></i>
-                New Playlist
-              </div>
-            </ul>
+
+            <div class="newPlaylist">
+              <i class="fas fa-plus-circle fa-lg"></i>
+              New Playlist
+            </div>
           </div>
         </div>
         <!-- End Nav -->
 
         <header id="header">
           <div class="header-left">
-            <a href="" class="arrow-left">
+            <span class="arrow-left">
               <i class="fas fa-arrow-left fa-2x arrow-left"></i>
-            </a>
-            <a href="" class="arrow-right">
+            </span>
+            <span class="arrow-right">
               <i class="fas fa-arrow-right fa-2x"></i>
-            </a>
+            </span>
             <form action="" class="form">
               <div class="search">
                 <i class="fas fa-search fa-lg"></i>
@@ -120,7 +118,7 @@
         </header>
         <div class="content">
           <!-- Start My Account -->
-          <div class="myAccount active">
+          <div class="myAccount ">
             <div class="myAccount-level">
               <div class="user-profile">
                 <div class="avatar">
@@ -136,31 +134,31 @@
               <nav class="user-nav">
                 <ul>
                   <li>
-                    <a href="" class="active">Overview</a>
+                    <span class="active">Overview</span>
                   </li>
 
                   <li>
-                    <a href="">Song</a>
+                    <span>Song</span>
                   </li>
 
                   <li>
-                    <a href=""> Playlist</a>
+                    <span> Playlist</span>
                   </li>
 
                   <li>
-                    <a href="">Singer</a>
+                    <span>Singer</span>
                   </li>
 
                   <li>
-                    <a href="">Album</a>
+                    <span>Album</span>
                   </li>
 
                   <li>
-                    <a href="">MV</a>
+                    <span>MV</span>
                   </li>
 
                   <li>
-                    <a href="">Upload</a>
+                    <span>Upload</span>
                   </li>
                 </ul>
               </nav>
@@ -168,25 +166,73 @@
                 <div class="header-myAccount">
                   <h3>The Song</h3>
                   <div>
-                    <a href=""><i class="fas fa-upload fa-lg"></i>Upload</a>
-                    <a href=""><i class="fas fa-play"></i>Play All</a>
+                    <span><i class="fas fa-upload fa-lg"></i>Upload</span>
+                    <span><i class="fas fa-play"></i>Play All</span>
                   </div>
                 </div>
                 <div class="user-song">
                   <div class="img-song-user">
-                    <img src="./assets/image/dotoc2.jpg" alt="">
+                    <ul>
+                      <li class="one ">
+                        <img src="./assets/image/dotoc2.jpg" alt="" />
+                      </li>
+
+                      <li class="two">
+                        <img src="./assets/image/HuaKimTuyen.jpg" alt="" />
+                      </li>
+
+                      <li class="three">
+                        <img src="./assets/image/LeBaoBinh.jpg" alt="" />
+                      </li>
+
+                      <li class="four">
+                        <img src="./assets/image/nal.jpg" alt="" />
+                      </li>
+
+                    </ul>
                   </div>
-                  <div class="song-user"></div>
+                  <div class="Thesong-user">
+                    <div class="list-song-user"></div>
+                  </div>
                 </div>
               </div>
 
               <div class="playlist-user">
-                <div class="title-playlist">  </div>
-                <div class="playlist-item"></div> 
+                <div class="title-playlist">
+                  <h3>Playlist</h3>
+                </div>
+                <div class="playlist-item">
+                  <div class="item">
+                    <div>
+                      <i class="fas fa-plus fa-3x"></i>
+                      <p>Create New Playlist</p>
+                    </div>
+                  </div>
+                  <div class="item">
+                    <div class="top">
+                      <div class="img-top">
+                        <img src="./assets/image/HuaKimTuyen.jpg" alt="" />
+                        <img src="./assets/image/dotoc2.jpg" alt="" />
+                      </div>
+                      <div class="img-down">
+                        <img src="./assets/image/LeBaoBinh.jpg" alt="" />
+                        <img src="./assets/image/nal.jpg" alt="" />
+                      </div>
+                    </div>
+                    <div class="hover-playlist">
+                      <i class="fas fa-times fa-2x"></i>
+                      <i class="far fa-play-circle fa-3x"></i>
+                      <i class="fas fa-ellipsis-h fa-1x"></i>
+                    </div>
+                    <div class="down">
+                      <p>Nhạc để Ngủ</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <div class="home ">home</div>
+          <div class="home active">home</div>
           <div class="trend">trend</div>
           <div class="likedSong">likedSong</div>
           <div class="album">album</div>
@@ -195,6 +241,7 @@
           <div class="playlist">playlist</div>
         </div>
       </div>
+
       <div class="playFrame">
         <div class="contentFrame">
           <div class="song">

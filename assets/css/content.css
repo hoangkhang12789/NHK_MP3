@@ -1,28 +1,36 @@
+:root {
+  --background1: transparent;
+  --background2: transparent;
+  --background3: transparent;
+  --background4: transparent;
+}
 ::-webkit-scrollbar {
   width: 5px;
+  height: 100vh;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 5px grey; 
+  box-shadow: inset 0 0 5px var(--background2);
   border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: red; 
+  background: var(--background1);
   border-radius: 10px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #b30000; 
+  background: var(--background1);
 }
+
 .content {
-  width: 80%;
+  width: 82%;
 
   float: left;
-
+  overflow-y: auto;
   position: absolute;
   top: 90px;
   left: 18%;
@@ -33,7 +41,6 @@
   height: 900px;
   display: none;
   max-height: 600px;
-  overflow-y: scroll;
 }
 .myAccount-level {
   padding: 10px;
@@ -71,8 +78,8 @@
   padding: 4px;
   list-style: none;
 }
-.user-nav a {
-  text-decoration: none;
+.user-nav span {
+  cursor: pointer;
   color: #fff;
   padding: 4px 25px;
   opacity: 0.8;
@@ -82,7 +89,7 @@
   opacity: 1;
   background-color: #8f8e8e;
 }
-.user-nav a:hover {
+.user-nav span:hover {
   opacity: 1;
 }
 .header-myAccount {
@@ -92,24 +99,256 @@
   justify-content: space-between;
   font-weight: 400;
 }
-.header-myAccount h3{
-  font-size: 20px;
+.header-myAccount h3 {
+  font-size: 25px;
 }
-.header-myAccount a{
+.header-myAccount span {
   color: #fff;
   text-decoration: none;
-  padding: 5px 20px;
+  padding: 7px 20px;
   border: 1px solid transparent;
   border-radius: 50px;
   background-color: #4b206e;
+  opacity: 0.8;
 }
-.header-myAccount a:last-child{
-  background-color:#ed2b91;
+.header-myAccount span i{
+  margin-right: 5px;
+}
+.header-myAccount span:last-child {
+  background-color: #ed2b91;
   margin-left: 6px;
 }
-.header-myAccount h3:hover{
+.header-myAccount span {
+  cursor: pointer;
+  opacity: 1;
+}
+.header-myAccount h3:hover {
   color: #ed2b91;
 }
+.user-song {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+  height: 300px;
+}
+.img-song-user {
+  width: 28%;
+  height: 100%;
+  background-color: transparent;
+}
+.Thesong-user {
+  height: 100%;
+  width: 72%;
+  background-color: transparent;
+}
+.thesong {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.thesong:hover {
+  background-color: #4b206e;
+}
+.thesong:hover .song-infor > .hovered > i {
+  color: #fff;
+}
+.thesong:hover .song-infor > .hovered > img {
+  opacity: 0.5;
+}
+
+.img-song {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.song-infor {
+  display: flex;
+}
+.song-infor > .hovered > i {
+  position: relative;
+  left: -30px;
+  right: 0;
+  top: -14px;
+  bottom: 0;
+  /* display:none; */
+  color: transparent;
+}
+.infor {
+  display: flex;
+  flex-direction: column;
+}
+.iconSong-user i {
+  margin: 0 10px;
+}
+.list-song-user {
+  height: 300px;
+  overflow-y: auto;
+}
+
+.list-song-user::-webkit-scrollbar {
+  width: 5px;
+  height: 100vh;
+}
+
+/* Track */
+.list-song-user::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px var(--background4);
+  border-radius: 10px;
+}
+
+/* Handle */
+.list-song-user::-webkit-scrollbar-thumb {
+  background: var(--background3);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.list-song-user::-webkit-scrollbar-thumb:hover {
+  background: var(--background3);
+}
+
+.title-user-song {
+  white-space: nowrap;
+  width: 220px;
+  max-width: 220px;
+  overflow: hidden;
+}
+.singer-user-song {
+  white-space: nowrap;
+  width: 200px;
+  max-width: 200px;
+  overflow: hidden;
+}
+.playlist-user {
+  margin-top: 20px;
+  width: 100%;
+  height: 400px;
+}
+.playlist-user h3 {
+  font-size: 25px;
+  font-weight: 400;
+}
+.playlist-item {
+  display: flex;
+  margin-top: 20px;
+}
+.item {
+  width: 18%;
+  overflow: hidden;
+  height: 260px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+.item:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(rgb(230, 7, 174), rgb(177, 10, 74));
+}
+.item:first-child div {
+  text-align: center;
+}
+.item:first-child div i {
+  margin-bottom: 10px;
+}
+.item .top {
+  border-radius: 10px;
+  height: 90%;
+  overflow: hidden;
+  transform-origin: 50% 50%;
+  transition: transform 5s, filter 3s ease-in-out;
+}
+.item .down {
+  text-align: center;
+  padding-top: 10px;
+}
+.top .img-top,
+.top .img-down {
+  display: flex;
+  height: 50%;
+}
+.top img {
+  width: 50%;
+  height: 100%;
+}
+.item .top:hover {
+  transform: scale(3);
+}
+.item:last-child:hover .hover-playlist {
+  display: flex;
+}
+.hover-playlist {
+  display: flex;
+  width: 18%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  left: 85px;
+
+  top: -140px;
+  display: none;
+}
+.hover-playlist i {
+  width: 40px;
+  color: #fff;
+  margin: 0 20px;
+}
+.img-song-user ul{
+  overflow: hidden;
+  display:flex;
+  padding: 20px 0;
+  align-items: center;
+  flex-direction: column
+}
+.img-song-user ul li{
+  list-style: none;
+  display: flex;
+ 
+}
+.img-song-user .one img{
+  display:flex;
+  height:260px;
+  width: 240px;
+  position: absolute;
+  z-index:4;
+  left:60px;
+  
+  transition:width 2s height 2s;
+}
+.img-song-user .two img{
+  height:230px;
+  width: 230px;
+  position: absolute;
+  z-index:3;
+  left:40px;
+  bottom: 5px;
+  opacity: 0.9;
+  transition:width 2s height 2s;
+}
+.img-song-user .three img{
+  height:196px;
+  width: 196px;
+  position: absolute;
+  z-index:2;
+  left:20px;
+  bottom: 20px;
+  opacity: 0.6;
+  transition:width 2s height 2s;
+}
+.img-song-user .four img{
+  height:162px;
+  width: 162px;
+  position: absolute;
+  z-index:1;
+  left:0;
+  bottom: 40px;
+  opacity: 0.3;
+  transition:width 2s height 2s;
+}
+
+
 /* End My Account */
 
 /* Start Home */
