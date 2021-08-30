@@ -28,11 +28,18 @@ const playListUser = $(".list-song-user");
 const playFrame = $(".playFrame");
 const listImage = $$(".img-song-user ul li");
 const playAll = $$(".header-myAccount span");
-console.log(playAll);
+const next = $(".next");
+const prev = $(".prev");
+const slider = $$(".img-slideShow img")
+const hovered = $$(".song-home");
+const hoverlist = $$(".hover-playmusic");
+const playHome = $$(".song-home .fa-play-circle");
+
 // Chuyển tab
 
 let arrayImage = ["one", "two", "three", "four"];
 let indexImage = 0;
+let indexSlider = 0;
 setInterval(() => {
     listImage[0].classList.add(`${arrayImage[(indexImage + 1) % 4]}`);
     listImage[0].classList.remove(`${arrayImage[(indexImage) % 4]}`);
@@ -48,6 +55,47 @@ setInterval(() => {
 }, 3000);
 
 
+
+
+
+next.onclick = () => {
+    indexSlider++;
+    if (indexSlider == 5) {
+
+        slider.forEach(((slider) => {
+            slider.style.transform = `translateX(0px)`
+        }))
+        indexSlider = 0;
+    } else {
+        slider.forEach(((slider) => {
+            slider.style.transform = `translateX(-${(indexSlider) * 415}px)`
+
+        }))
+
+    }
+
+}
+prev.onclick = () => {
+    indexSlider--;
+    if (indexSlider == -1) {
+        slider.forEach(((slider) => {
+            slider.style.transform = `translateX(-${4 * 415}px)`
+        }))
+        indexSlider = slider.length - 1;
+    } else {
+        slider.forEach(((slider) => {
+            slider.style.transform = `translateX(-${(indexSlider * 415)}px)`
+            console.log((indexSlider) * 415);
+
+        }))
+
+    }
+}
+
+setInterval(() => {
+    next.click();
+}, 3000);
+
 tabs.forEach((tab, index) => {
     const content = contents[index]
     tab.onclick = () => {
@@ -55,6 +103,7 @@ tabs.forEach((tab, index) => {
         $("#nav .active").classList.remove("active");
         $(".content > .active").classList.remove("active");
         tab.classList.add('active');
+        console.log(content)
         content.classList.add('active');
     }
 })
@@ -360,6 +409,16 @@ const app = {
             pause.classList.add("active");
             audio.play();
         }
+        playHome.forEach((play) => {
+            play.onclick = () => {
+                playAndPause.classList.remove("active");
+
+
+                playFrame.classList.add("active-playFrame");
+                pause.classList.add("active");
+                audio.play();
+            }
+        })
 
     }
     ,
