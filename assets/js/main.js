@@ -34,7 +34,11 @@ const slider = $$(".img-slideShow img")
 const hovered = $$(".song-home");
 const hoverlist = $$(".hover-playmusic");
 const playHome = $$(".song-home .fa-play-circle");
-
+const playTrendheader = $(".headerTrend .fa-play-circle");
+const playlistTrend = $(".toptrendLevel");
+const playWeekTrend = $$(".listweekTrend .song");
+const newPlaylist= $(".newPlaylist");
+const arrayColor = ["top1", "top2", "top3"]
 // Chuyển tab
 
 let arrayImage = ["one", "two", "three", "four"];
@@ -53,7 +57,9 @@ setInterval(() => {
 
 
 }, 3000);
-
+newPlaylist.onclick = () => {
+    console.log(125);
+}
 
 
 
@@ -93,7 +99,17 @@ prev.onclick = () => {
 }
 
 setInterval(() => {
-    next.click();
+    if (indexSlider == 5) {
+
+        slider.forEach(((slider) => {
+            slider.style.transform = `translateX(0px)`
+        }))
+        indexSlider = 0;
+    } else {
+        next.click();
+        0
+    }
+
 }, 3000);
 
 tabs.forEach((tab, index) => {
@@ -210,6 +226,30 @@ const app = {
             path: "./assets/music/RoiToiLuon.mp3",
             image: "./assets/image/nal.jpg",
             time: "4:02"
+        }
+        ,
+        {
+            title: "Kill This Love",
+            singer: "Black Pink",
+            path: "./assets/music/KillThisLove.mp3",
+            image: "./assets/image/backpink.png",
+            time: "3:09"
+        }
+        ,
+        {
+            title: "Phá kén",
+            singer: "Trương Thiều Hàm",
+            path: "./assets/music/phaken.mp3",
+            image: "./assets/image/phaken.jpg",
+            time: "3:31"
+        }
+        ,
+        {
+            title: "I'm So Hot",
+            singer: "Momoland",
+            path: "./assets/music/bombom.mp3",
+            image: "./assets/image/momoland.jpg",
+            time: "3:20"
         }
 
     ],
@@ -413,12 +453,66 @@ const app = {
             play.onclick = () => {
                 playAndPause.classList.remove("active");
 
-
                 playFrame.classList.add("active-playFrame");
                 pause.classList.add("active");
                 audio.play();
             }
         })
+        playTrendheader.onclick = () => {
+            playAndPause.classList.remove("active");
+            this.currentIndex = 0;
+            this.loadCurrentSong();
+
+
+            playFrame.classList.add("active-playFrame");
+            pause.classList.add("active");
+            audio.play();
+        }
+
+    }
+    ,
+    renderSongtrend: function () {
+        const html = this.song.map((songs, index) => {
+
+            return `
+            <div class="thesong">
+            <div class="left">
+              <article class="${arrayColor[index]}">
+                <h1>${index + 1}</h1>
+              </article>
+              <i class="fas fa-minus"></i>
+              <div class="song-infor">
+                <div class="hovered">
+                  <img
+                  src="${songs.image}"
+                  alt="singer"
+                  class="img-song"
+                />
+                <i class="fas fa-play"></i>
+                </div>
+               
+                <div class="infor">
+                  <span class="title-user-song">${songs.title} </span>
+                  <span class="singer-user-song">${songs.singer} </span>
+                </div>
+              </div>
+            </div>
+            
+            <div class="divtimeSong">
+              <span>${songs.time}</span>
+            </div>
+            <div class="iconSong-user">
+              <i class="fas fa-microphone-alt"></i>
+              <i class="far fa-heart"></i>
+              <i class="fas fa-ellipsis-h"></i>
+            </div>
+          </div>
+            `
+
+
+        });
+
+        playlistTrend.innerHTML = html.join("")
 
     }
     ,
@@ -457,8 +551,119 @@ const app = {
 
         playListUser.innerHTML = html.join("")
     },
+
+    renderWeekUser: function () {
+        let newSong = [];
+        for (var i = 0; i < 5; i++) {
+            newSong[i] = this.song[i];
+        }
+        let newSong1 = [];
+        for (var i = 2; i < 7; i++) {
+            newSong1[i-2] = this.song[i];
+        } let newSong2 = [];
+        for (var i = 5; i < 10; i++) {
+            newSong2[i-5] = this.song[i];
+        }
+        const html = newSong.map((songs, index) => {
+            return `
+            <div class="width">
+            <div class="left">
+                            <article>
+                              <h1>${index + 1}</h1>
+                            </article>
+                            <i class="fas fa-minus"></i>
+                            <div class="song-infor">
+                              <img
+                                src="${songs.image}"
+                                alt="singer"
+                                class="img-song"
+                              />
+                              
+
+                              <div class="infor">
+                                <span class="title-user-song">${songs.title}</span>
+                                <span class="singer-user-song">${songs.singer} </span>
+                              </div>
+                              <i class="fas fa-play"></i>
+                            </div>
+                            
+                            <div class="right">
+                              <i class="fas fa-microphone"></i>
+                              <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                          </div>
+                          </div>
+            `
+        });
+        const html1 = newSong1.map((songs, index) => {
+            return `
+            <div class="width">
+            <div class="left">
+                            <article>
+                              <h1>${index + 1}</h1>
+                            </article>
+                            <i class="fas fa-minus"></i>
+                            <div class="song-infor">
+                              <img
+                                src="${songs.image}"
+                                alt="singer"
+                                class="img-song"
+                              />
+                              
+
+                              <div class="infor">
+                                <span class="title-user-song">${songs.title}</span>
+                                <span class="singer-user-song">${songs.singer} </span>
+                              </div>
+                              <i class="fas fa-play"></i>
+                            </div>
+                            
+                            <div class="right">
+                              <i class="fas fa-microphone"></i>
+                              <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                          </div>
+                          </div>
+            `
+        });
+        const html2 = newSong2.map((songs, index) => {
+            return `
+            <div class="width">
+            <div class="left">
+                            <article>
+                              <h1>${index + 1}</h1>
+                            </article>
+                            <i class="fas fa-minus"></i>
+                            <div class="song-infor">
+                              <img
+                                src="${songs.image}"
+                                alt="singer"
+                                class="img-song"
+                              />
+                              
+
+                              <div class="infor">
+                                <span class="title-user-song">${songs.title}</span>
+                                <span class="singer-user-song">${songs.singer} </span>
+                              </div>
+                              <i class="fas fa-play"></i>
+                            </div>
+                            
+                            <div class="right">
+                              <i class="fas fa-microphone"></i>
+                              <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                          </div>
+                          </div>
+            `
+        });
+        playWeekTrend[0].innerHTML=html.join("");
+        playWeekTrend[1].innerHTML=html1.join("");
+        playWeekTrend[2].innerHTML=html2.join("");
+
+    },
     PlaySongUser: function () {
-        const listPlayUser = $$(".thesong")
+        const listPlayUser = $$(".list-song-user .thesong")
         listPlayUser.forEach((play, index) => {
             play.onclick = () => {
                 playAndPause.classList.remove("active");
@@ -475,11 +680,33 @@ const app = {
 
     }
     ,
+    PlaySongTrend: function () {
+        const listPlayUser = $$(".toptrendLevel .thesong")
+        listPlayUser.forEach((play, index) => {
+            play.onclick = () => {
+                playAndPause.classList.remove("active");
+                this.currentIndex = index;
+                this.loadCurrentSong();
+                playFrame.classList.add("active-playFrame");
+                pause.classList.add("active");
+                audio.play();
+            }
+
+
+        })
+
+
+    }
+
+    ,
     run: function () {
-        this.renderUser()
+        this.renderUser();
+        this.renderWeekUser();
+        this.renderSongtrend();
         this.loadCurrentSong();
         this.loadTime();
         this.PlaySongUser();
+        this.PlaySongTrend();
         this.handledSong();
 
 
@@ -490,4 +717,56 @@ app.run();
 
 
 
+window.onload = function() {
 
+    var chart = new CanvasJS.Chart("chartContainer", {
+        animationEnabled: true,
+        title: {
+            // text: "Hourly Average CPU Utilization"
+        },
+        axisX: {
+            // title: "Time"
+        },
+        axisY: {
+            // title: "Percentage",
+            // suffix: "%",
+            // includeZero: true
+        }
+        // background-color:"transparent"
+        ,
+        data: [{
+            type: "line",
+            name: "CPU Utilization",
+            connectNullData: true,
+            //nullDataLineDashType: "solid",
+            xValueType: "dateTime",
+            xValueFormatString: "DD MMM hh:mm TT",
+            yValueFormatString: "#,##0.##\"%\"",
+            dataPoints: [
+                { x: 1501048673000, y: 35.939 },
+                { x: 1501052273000, y: 40.896 },
+                { x: 1501055873000, y: 56.625 },
+                { x: 1501059473000, y: 26.003 },
+                { x: 1501063073000, y: 20.376 },
+                { x: 1501066673000, y: 19.774 },
+                { x: 1501070273000, y: 23.508 },
+                { x: 1501073873000, y: 18.577 },
+                { x: 1501077473000, y: 15.918 },
+                // { x: 1501081073000, y: 29.998 }, // Null Data
+                // { x: 1501084673000, y: 10.314 },
+                // { x: 1501088273000, y: 10.574 },
+                // { x: 1501091873000, y: 14.422 },
+                // { x: 1501095473000, y: 18.576 },
+                // { x: 1501099073000, y: 22.342 },
+                // { x: 1501102673000, y: 22.836 },
+                // { x: 1501106273000, y: 23.220 },
+                // { x: 1501109873000, y: 23.594 },
+                // { x: 1501113473000, y: 24.596 },
+                // { x: 1501117073000, y: 31.947 },
+                // { x: 1501120673000, y: 31.142 }
+            ]
+        }]
+    });
+    chart.render();
+    
+    }

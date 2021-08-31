@@ -11,7 +11,7 @@
       type="image/gif"
       sizes="16x16"
     />
-
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js " async></script>
     <script
       src="https://kit.fontawesome.com/466439df6f.js"
       crossorigin="anonymous"
@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./assets/css/content.css" />
     <script src="./assets/js/main.js" async></script>
   </head>
+
   <body>
     <div class="main">
       <div class="frame">
@@ -59,7 +60,7 @@
 
               <li>
                 <i class="fab fa-napster"></i>
-                Artist
+                Singer
               </li>
 
               <li>
@@ -73,7 +74,7 @@
 
             <div class="newPlaylist">
               <i class="fas fa-plus-circle fa-lg"></i>
-              New Playlist
+              <span>New Playlist</span>
             </div>
           </div>
         </div>
@@ -231,7 +232,7 @@
               </div>
             </div>
           </div>
-          <div class="home active">
+          <div class="home">
             <div class="homeLevel">
               <div class="slideShow">
                 <div class="img-slideShow">
@@ -412,18 +413,122 @@
               </div>
             </div>
           </div>
-          <div class="trend">
+          <div class="trend active">
             <div class="trendLevel">
-              <div class="headerTrend"></div>
-              <div class="chart"></div>
-              <div class="top"></div>
+              <div class="headerTrend">
+                <h2>#Top Trending</h2>
+                <i class="fas fa-play-circle fa-2x"></i>
+              </div>
+              <div class="chart">
+                <div
+                  id="chartContainer"
+                  style="height: 300px; width: 100%"
+                ></div>
+              </div>
+              <div class="topTrengding">
+                <div class="toptrendLevel"></div>
+                <div class="more">
+                  <button>Top 100</button>
+                </div>
+              </div>
+              <div class="weekTrend">
+                <h3>Weekly Rankings</h3>
+                <div class="weekTrenLevel">
+                  <div class="weektrendItem">
+                    <div class="weekitem">
+                      <div class="headerWeek">
+                        <h3>Việt Nam</h3>
+                        <i class="fas fa-play-circle fa-2x"></i>
+                      </div>
+                      <div class="listweekTrend">
+                        <div class="song">
+                          
+                        </div>
+                      </div>
+                      <div class="footerWeek">
+                        <button>All List</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="weektrendItem">
+                    <div class="weekitem">
+                      <div class="headerWeek">
+                        <h3>US-UK</h3>
+                        <i class="fas fa-play-circle fa-2x"></i>
+                      </div>
+                      <div class="listweekTrend">
+                        <div class="song">
+                          
+                        </div>
+                      </div>
+                      <div class="footerWeek">
+                        <button>All List</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                  <div class="weektrendItem">
+                    <div class="weekitem">
+                      <div class="headerWeek">
+                        <h3>K-Pop</h3>
+                        <i class="fas fa-play-circle fa-2x"></i>
+                      </div>
+                      <div class="listweekTrend">
+                        <div class="song">
+                          
+                        </div>
+                      </div>
+                      <div class="footerWeek">
+                        <button>All List</button>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="likedSong">likedSong</div>
-          <div class="album">album</div>
-          <div class="artist">artist</div>
-          <div class="history">history</div>
-          <div class="playlist">playlist</div>
+          <div class="likedSong">
+            <div class="frameBaotri">
+              <div class="baotri">
+                <h1>Hệ thống đang phát triển. Vui lòng quay lại khi thằng coder rảnh</h1>
+                <img src="./assets/image/dang-nangcap.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="album">
+            <div class="frameBaotri">
+              <div class="baotri">
+                <h1>Hệ thống đang phát triển. Vui lòng quay lại khi thằng coder rảnh</h1>
+                <img src="./assets/image/dang-nangcap.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="artist">
+            <div class="frameBaotri">
+              <div class="baotri">
+                <h1>Hệ thống đang phát triển. Vui lòng quay lại khi thằng coder rảnh</h1>
+                <img src="./assets/image/dang-nangcap.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="history">
+            <div class="frameBaotri">
+              <div class="baotri">
+                <h1>Hệ thống đang phát triển. Vui lòng quay lại khi thằng coder rảnh</h1>
+                <img src="./assets/image/dang-nangcap.jpg" alt="">
+              </div>
+            </div>
+          </div>
+          <div class="playlist">
+            <div class="frameBaotri">
+              <div class="baotri">
+                <h1>Hệ thống đang phát triển. Vui lòng quay lại khi thằng coder rảnh</h1>
+                <img src="./assets/image/dang-nangcap.jpg" alt="">
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -504,10 +609,11 @@
         </div>
       </div>
     </div>
-
+   
     <audio
       src="./assets/music/NiuDuyen-LeBaoBinh-6872127.mp3"
       id="audio"
+
     ></audio>
   </body>
 </html>

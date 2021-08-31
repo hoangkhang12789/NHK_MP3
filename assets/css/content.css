@@ -477,8 +477,9 @@
   color: #ffff;
   display: none;
 }
-.events{
+.events {
   display: flex;
+  height: 400px;
 }
 .hover-playmusic i {
   width: 40px;
@@ -511,26 +512,25 @@
 }
 .infor-even {
   color: #ffff;
-  background-color:transparent;
+  background-color: transparent;
   max-height: 230px;
   max-width: 375px;
 }
 .content-even {
-  
   z-index: 18;
   position: relative;
   top: -100px;
   left: 15px;
 }
-.content-even span{
+.content-even span {
   background-color: #ffffff;
   color: red;
   padding: 3px;
   margin-bottom: 5px;
 }
-.content-even .title-even{
-  font-size:20px;
-  padding:8px;
+.content-even .title-even {
+  font-size: 20px;
+  padding: 8px;
   padding-left: 0;
 }
 .infor-even img {
@@ -539,42 +539,228 @@
   height: 90%;
   max-height: 270px;
 }
-.infor-even-user{
-  display:flex;
-  justify-content:space-between;
+.infor-even-user {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  padding:15px;
+  padding: 15px;
 }
-.infor-even-user button{
-  padding:9px 20px;
+.infor-even-user button {
+  padding: 9px 20px;
   border: 1px solid transparent;
   background-color: #ed2b91;
-  border-radius:17px;
+  border-radius: 17px;
   font-size: 15px;
   color: #fff;
   font-weight: bold;
-  
 }
-.join{
+.join {
   color: #ffff;
 }
 /* End Home */
 
 /* Start Trend */
 .trend {
-  background-color: rgb(5, 2, 17);
+  background-color: transparent;
   height: 900px;
   display: none;
   max-height: 600px;
+}
+.trendLevel {
+  width: 100%;
+  padding: 10px;
+}
+.headerTrend {
+  height: 50px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+.headerTrend h2 {
+  font-size: 30px;
+  color: #fff;
+}
+.headerTrend i {
+  color: #ed2b91;
+  margin-left: 10px;
+}
+.chart {
+  background: red;
+  width: 100%;
+  height: 300px;
+}
+article {
+  background: linear-gradient(to right, hsl(98 100% 62%), hsl(204 100% 59%));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ad9db9;
+  -webkit-text-stroke: 1px #ffffff;
+}
+
+.toptrendLevel {
+  color: #ffff;
+  margin-top: 20px;
+}
+.toptrendLevel .left {
+  display: flex;
+  align-items: center;
+}
+.toptrendLevel .left h1 {
+  font-size: 40px;
+  margin-right: 10px;
+  width: 50px;
+}
+.toptrendLevel .left i {
+  margin-right: 15px;
+}
+.top1 {
+  -webkit-text-fill-color: #091ed8;
+}
+.top2 {
+  -webkit-text-fill-color: #06e035;
+}
+.top3 {
+  -webkit-text-fill-color: #e90606;
+}
+.more {
+  height: 50px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.more button {
+  padding: 8px 30px;
+  border: 1px solid #ffff;
+  border-radius: 20px;
+  background: transparent;
+  color: #ffff;
+  font-size: 15px;
+}
+.more button:hover {
+  background-color: hsla(0, 0%, 100%, 0.1);
+}
+.weekTrend {
+  width: 100%;
+  margin-top: 20px;
+  height: 600px;
+}
+.weekTrend h3 {
+  font-size: 30px;
+  color: #fff;
+}
+.weekTrenLevel {
+  width: 100%;
+  margin-top: 20px;
+  display: flex;
+}
+.weektrendItem {
+  width: 33%;
+  height: 450px;
+  background: hsla(0, 0%, 100%, 0.1);
+  border: 1px solid transparent;
+  border-radius:20px;
+  color: #fff;
+  padding: 10px;
+}
+.weekitem{
+  display: flex;
+  flex-direction: column;
+}
+.headerWeek{
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  padding: 10px 0px;
+
+}
+.headerWeek i{
+margin-left: 20px;
+color: #ed2b91;
+}
+.listweekTrend .song .left{
+  display: flex;
+  align-items: center;
+  
+}
+.listweekTrend .song .left i{
+  margin: 0 10px;
+}
+.listweekTrend .song .left .infor{
+  margin-left: 10px;
+}
+.listweekTrend .song .left .song-infor i:last-child{
+  position: relative;
+  z-index: 9;
+  top:11px;
+  right: 265px;
+  
+  display: none;
+
+}
+.listweekTrend .song .left{
+  padding:10px;
+  cursor: pointer;
+  width: 100%;
+}
+.footerWeek{
+  display:flex;
+  align-items: center;
+  justify-content:center;
+}
+.footerWeek button{
+  padding: 8px 30px;
+  border: 1px solid #ffff;
+  border-radius: 20px;
+  background: transparent;
+  color: #ffff;
+  font-size: 15px;
+  margin-top: 20px;
+}
+.footerWeek button:hover {
+  background-color: hsla(0,0%,100%,0.05);
+}
+.right{
+  display: flex;
+  position:relative;
+  left:-40px;
+  display:none;
+
+}
+.right i{
+  margin: 0 5px;
+}
+.listweekTrend .song .width:hover{
+  background-color: #4b206e;
+}
+
+.listweekTrend .song .left:hover .song-infor i:last-child{
+  display: block;
+}
+.listweekTrend .song .left:hover .right{
+  display: flex;
+}
+.listweekTrend .song{
+  display: block;
+}
+.width{
+  width: 100%;
+  /* background:#e90606; */
+  min-width: 385px;
+  
+}
+.weekTrenLevel{
+  display: flex;
+  justify-content:space-between;
 }
 /* End Trend */
 
 /* Start Liked Song */
 .likedSong {
-  background-color: rgb(20, 218, 46);
+  background-color: rgb(11, 35, 245);
   height: 900px;
   display: none;
   max-height: 600px;
+  
 }
 /* End Liked Song */
 
@@ -615,4 +801,17 @@
 /* End  Playlist*/
 .content .active {
   display: block;
+}
+.baotri img{
+  width: 600px;
+  height: 300px;
+}
+.frameBaotri{
+  line-height: 6;
+}
+.baotri{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }

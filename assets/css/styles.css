@@ -67,9 +67,13 @@ body {
   margin-left: 0;
 }
 .newPlaylist {
-  margin-top: 6px;
+  margin-top: 10px;
   font-size: 19px;
   color: #fff;
+  margin-left: 20px;
+}
+.newPlaylist :hover{
+  cursor: pointer;
 }
 /* End Nav */
 
