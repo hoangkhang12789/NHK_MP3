@@ -37,7 +37,7 @@ const playHome = $$(".song-home .fa-play-circle");
 const playTrendheader = $(".headerTrend .fa-play-circle");
 const playlistTrend = $(".toptrendLevel");
 const playWeekTrend = $$(".listweekTrend .song");
-const newPlaylist= $(".newPlaylist");
+const newPlaylist = $(".newPlaylist");
 const arrayColor = ["top1", "top2", "top3"]
 // Chuyển tab
 
@@ -518,9 +518,9 @@ const app = {
     ,
     renderUser: function () {
 
-        const html = this.song.map(songs => {
+        const html = this.song.map((songs, index)=> {
             return `
-            <div class="thesong">
+            <div class="thesong ">
                         <div class="song-infor">
                           <div class="hovered">
                             <img
@@ -559,10 +559,10 @@ const app = {
         }
         let newSong1 = [];
         for (var i = 2; i < 7; i++) {
-            newSong1[i-2] = this.song[i];
+            newSong1[i - 2] = this.song[i];
         } let newSong2 = [];
         for (var i = 5; i < 10; i++) {
-            newSong2[i-5] = this.song[i];
+            newSong2[i - 5] = this.song[i];
         }
         const html = newSong.map((songs, index) => {
             return `
@@ -657,15 +657,18 @@ const app = {
                           </div>
             `
         });
-        playWeekTrend[0].innerHTML=html.join("");
-        playWeekTrend[1].innerHTML=html1.join("");
-        playWeekTrend[2].innerHTML=html2.join("");
+        playWeekTrend[0].innerHTML = html.join("");
+        playWeekTrend[1].innerHTML = html1.join("");
+        playWeekTrend[2].innerHTML = html2.join("");
 
     },
     PlaySongUser: function () {
+        
+        
         const listPlayUser = $$(".list-song-user .thesong")
         listPlayUser.forEach((play, index) => {
             play.onclick = () => {
+                play.focus();
                 playAndPause.classList.remove("active");
                 this.currentIndex = index;
                 this.loadCurrentSong();
@@ -684,6 +687,8 @@ const app = {
         const listPlayUser = $$(".toptrendLevel .thesong")
         listPlayUser.forEach((play, index) => {
             play.onclick = () => {
+                play.focus();
+
                 playAndPause.classList.remove("active");
                 this.currentIndex = index;
                 this.loadCurrentSong();
@@ -715,58 +720,87 @@ const app = {
 
 app.run();
 
-
-
-window.onload = function() {
+window.onload = function () {
 
     var chart = new CanvasJS.Chart("chartContainer", {
         animationEnabled: true,
-        title: {
-            // text: "Hourly Average CPU Utilization"
-        },
-        axisX: {
-            // title: "Time"
+
+        backgroundColor: "#2b1a42",
+        axisX:{
+            labelFontColor: "#ffff"
         },
         axisY: {
-            // title: "Percentage",
-            // suffix: "%",
-            // includeZero: true
-        }
-        // background-color:"transparent"
-        ,
+            labelFontColor: "#ffff",
+            suffix: "%",
+            includeZero: true
+            , tickLength: 10
+        },
+        legend: {
+            cursor: "pointer",
+		fontSize: 16,
+        },
+        toolTip: {
+            // shared: true
+        },
         data: [{
-            type: "line",
-            name: "CPU Utilization",
-            connectNullData: true,
-            //nullDataLineDashType: "solid",
+            name: "Níu Duyên",
+            type: "spline",
             xValueType: "dateTime",
-            xValueFormatString: "DD MMM hh:mm TT",
+            xValueFormatString: "Níu duyên",
             yValueFormatString: "#,##0.##\"%\"",
             dataPoints: [
-                { x: 1501048673000, y: 35.939 },
-                { x: 1501052273000, y: 40.896 },
-                { x: 1501055873000, y: 56.625 },
-                { x: 1501059473000, y: 26.003 },
-                { x: 1501063073000, y: 20.376 },
-                { x: 1501066673000, y: 19.774 },
-                { x: 1501070273000, y: 23.508 },
-                { x: 1501073873000, y: 18.577 },
-                { x: 1501077473000, y: 15.918 },
-                // { x: 1501081073000, y: 29.998 }, // Null Data
-                // { x: 1501084673000, y: 10.314 },
-                // { x: 1501088273000, y: 10.574 },
-                // { x: 1501091873000, y: 14.422 },
-                // { x: 1501095473000, y: 18.576 },
-                // { x: 1501099073000, y: 22.342 },
-                // { x: 1501102673000, y: 22.836 },
-                // { x: 1501106273000, y: 23.220 },
-                // { x: 1501109873000, y: 23.594 },
-                // { x: 1501113473000, y: 24.596 },
-                // { x: 1501117073000, y: 31.947 },
-                // { x: 1501120673000, y: 31.142 }
+                { x: new Date(2021, 8, 24), y: 51 },
+                { x: new Date(2021, 8, 25), y: 61 },
+                { x: new Date(2021, 8, 26), y: 79 },
+                { x: new Date(2021, 8, 27), y: 59 },
+                { x: new Date(2021, 8, 28), y: 41 },
+                { x: new Date(2021, 8, 29), y: 80 },
+                { x: new Date(2021, 8, 30), y: 79 }
+            ]
+        },
+        {
+            name: "Phận duyên lỡ làng",
+            type: "spline",
+            xValueType: "dateTime",
+            xValueFormatString: "'Ph'ận duyên lỡ làng",
+            yValueFormatString: "#,##0.##\"%\"",
+            dataPoints: [
+                { x: new Date(2021, 8, 24), y: 40 },
+                { x: new Date(2021, 8, 25), y: 50 },
+                { x: new Date(2021, 8, 26), y: 65 },
+                { x: new Date(2021, 8, 27), y: 75 },
+                { x: new Date(2021, 8, 28), y: 25 },
+                { x: new Date(2021, 8, 29), y: 55 },
+                { x: new Date(2021, 8, 30), y: 45 }
+            ]
+        },
+        {
+            name: "Sài gòn đau lòng quá",
+            type: "spline",
+            xValueType: "dateTime",
+            xValueFormatString: "Sài gòn đau lòng quá",
+            yValueFormatString: "#,##0.##\"%\"",
+            dataPoints: [
+                { x: new Date(2021, 8, 24), y: 25 },
+                { x: new Date(2021, 8, 25), y: 39 },
+                { x: new Date(2021, 8, 26), y: 43 },
+                { x: new Date(2021, 8, 27), y: 24 },
+                { x: new Date(2021, 8, 28), y: 4 },
+                { x: new Date(2021, 8, 29), y: 13 },
+                { x: new Date(2021, 8, 30), y: 23 }
             ]
         }]
     });
     chart.render();
-    
+
+    function toggleDataSeries(e) {
+        if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+            e.dataSeries.visible = false;
+        }
+        else {
+            e.dataSeries.visible = true;
+        }
+        chart.render();
     }
+
+}

@@ -7,6 +7,10 @@
 body {
   font-family: Inter,sans-serif;
 }
+input{
+  caret-color: #ffffff !important;
+
+}
 .main {
   caret-color: rgba(0, 0, 0, 0);
   height: 100vh;
@@ -21,6 +25,21 @@ body {
   margin: 10px;
   margin-top: 0;
   height: 100vh;
+}
+#nav h1 {
+  text-align: center;
+  line-height:2;
+  color: red;
+  text-shadow: 5px 10px #0704ca;
+}
+#nav img{
+  width:40px;
+  height:40px;
+}
+#nav .logotex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 /* Start Nav */
 .logo {
