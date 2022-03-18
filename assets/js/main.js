@@ -1,6 +1,7 @@
 "use strick"
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
+
 const audio = $("#audio");
 const play = $(".play-btn");
 const pause = $(".pause");
@@ -63,24 +64,24 @@ newPlaylist.onclick = () => {
 
 
 
+// console.log(next)
+// next.onclick = () => {
+//     indexSlider++;
+//     if (indexSlider == 5) {
 
-next.onclick = () => {
-    indexSlider++;
-    if (indexSlider == 5) {
+//         slider.forEach(((slider) => {
+//             slider.style.transform = `translateX(0px)`
+//         }))
+//         indexSlider = 0;
+//     } else {
+//         slider.forEach(((slider) => {
+//             slider.style.transform = `translateX(-${(indexSlider) * 415}px)`
 
-        slider.forEach(((slider) => {
-            slider.style.transform = `translateX(0px)`
-        }))
-        indexSlider = 0;
-    } else {
-        slider.forEach(((slider) => {
-            slider.style.transform = `translateX(-${(indexSlider) * 415}px)`
+//         }))
 
-        }))
+//     }
 
-    }
-
-}
+// }
 prev.onclick = () => {
     indexSlider--;
     if (indexSlider == -1) {
